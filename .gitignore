@@ -38,3 +38,6 @@ local_settings.py
 
 # Redis dumps (if applicable)
 dump.rdb
+
+
+*_Zone.Identifier
