@@ -7,3 +7,4 @@ huey
 redis
 daphne
 channels
+tavily-python

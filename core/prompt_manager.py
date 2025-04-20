@@ -2,8 +2,9 @@ from openai import OpenAI
 
 openai_client = OpenAI()
 
+
 class PromptManager:
-    def __init__(self, model = "gpt-4o", messages = []):
+    def __init__(self, model="gpt-4o", messages=[]):
         self.model = model
         self.messages = messages
 
@@ -15,8 +16,7 @@ class PromptManager:
 
     def generate(self):
         response = openai_client.chat.completions.create(
-            model=self.model,
-            messages=self.messages
+            model=self.model, messages=self.messages
         )
 
         content = response.choices[0].message.content
@@ -24,9 +24,7 @@ class PromptManager:
 
     def generate_structured(self, schema):
         response = openai_client.beta.chat.completions.parse(
-            model=self.model,
-            messages=self.messages,
-            response_format=schema
+            model=self.model, messages=self.messages, response_format=schema
         )
 
         content = response.choices[0].message.parsed
