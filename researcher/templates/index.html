@@ -20,18 +20,20 @@
         <section id="log"></section>
         <section id="content"></section>
     </main>
+
     <script>
+
         const ws = new WebSocket("ws://localhost:8000/ws/notifications/");
 
-        ws.onmessage = function (event) {
+        ws.onmessage = function(event) {
             const data = JSON.parse(event.data);
 
-            const type = data.message.content;
+            const type = data.message.type;
             const content = data.message.content;
 
-            if (type === "notification") {
+            if (type == "notification") {
                 const notificationLog = document.getElementById("log");
-                notificationLog.innerHTML += `<p>${content}</p>`;
+                notificationLog.innerHTML += '<p>${content}</p>';
             }
 
             if (type == "final_result") {

@@ -28,7 +28,7 @@ def process_research(company_name):
     context = ""
 
     for query in queries:
-        send_notification('notification', f'Researching: {query}')# If you want to slashing the queries and make it faster, slash here
+        send_notification('notification', f'Researching about: {query}') # If you want to slashing the queries and make it faster, slash here
         response = research(query)
         context += f"Query: {query}\nResponse: {response}\n\n"
 
