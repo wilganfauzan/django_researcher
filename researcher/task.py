@@ -3,6 +3,8 @@ from huey.contrib.djhuey import task
 from core.methods import send_notification
 from researcher.methods import generate_business_profile, generate_queries, research
 
+import markdown2
+
 
 @task()
 def process_research(company_name):
@@ -34,5 +36,6 @@ def process_research(company_name):
 
     send_notification('notification', 'Generating Business Profile from queries')
     business_profile = generate_business_profile(context)
+    html = markdown2.markdown(business_profile)
 
-    send_notification('final_result', business_profile)
+    send_notification('final_result', html)
